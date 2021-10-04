@@ -1,0 +1,35 @@
+{
+  "name": "v-highlight",
+  "version": "0.1.0",
+  "description": "Highlight words with this simple and dependency-less Vue 3 directive",
+  "module": "dist/index.mjs",
+  "main": "dist/index.js",
+  "jsnext:main": "dist/index.mjs",
+  "umd:main": "dist/index.umd.js",
+  "source": "src/index.ts",
+  "typings": "types/index.d.ts",
+  "repository": "https://d8vjork@github.com/d8vjork/v-highlight.git",
+  "author": "Rubén Robles <d8vjork@outlook.com>",
+  "license": "MIT",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "bundle": "microbundle -f es,cjs,umd",
+    "watch": "bundle --watch",
+    "clean": "rimraf dist",
+    "build": "npm-run-all --silent clean -p bundle"
+  },
+  "dependencies": {
+    "vue": "^3.2.19"
+  },
+  "devDependencies": {
+    "microbundle": "^0.13.3",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "tsc": "^2.0.3",
+    "typescript": "^4.4.3"
+  },
+  "files": [
+    "dist/*",
+    "types/*"
+  ]
+}
