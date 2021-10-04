@@ -1,5 +1,5 @@
 {
-  "name": "v-highlight",
+  "name": "v-highlight-3",
   "version": "0.1.0",
   "description": "Highlight words with this simple and dependency-less Vue 3 directive",
   "module": "dist/index.mjs",
