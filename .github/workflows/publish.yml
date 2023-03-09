@@ -15,13 +15,12 @@ jobs:
           node-version: 16
           registry-url: 'https://registry.npmjs.org'
           cache: 'yarn'
-      - run: yarn install
-      - run: |
-          npm version ${{ github.ref_name }}
-          npm publish --access public
-
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: |
+          yarn install
+          npm version --no-commit-hooks --no-git-tag-version ${{ github.ref_name }}
+          npm publish --access public
 
       - name: Get latest release info
         id: get-release-info
