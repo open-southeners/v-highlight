@@ -1,0 +1,34 @@
+name: Publish
+
+on:
+  push:
+    tags:
+      - '**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'yarn'
+      - run: yarn install
+      - run: npm publish --access public --tag ${{ github.ref_name }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Get latest release info
+        id: get-release-info
+        uses: release-flow/keep-a-changelog-action/get-release-info@v1
+        with:
+          release-version: latest
+
+      - name: Publish to Github releases
+        uses: softprops/action-gh-release@v1
+        with:
+          body: ${{ steps.get-release-info.outputs.release-notes }}
+          # prerelease: true
+          # files: '*.vsix'
