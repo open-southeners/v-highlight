@@ -35,9 +35,14 @@ const parseMatchedTextNode = (regexp: RegExp, node: ChildNode, style?: string) =
     attrs = ' style="background-color: #ebe76e;"'
   }
 
-  el.innerHTML = el.innerHTML.replaceAll(regexp, (match) => {
-    return `<span${attrs}>${match}</span>`
+  el.innerText = el.innerText.replaceAll(regexp, (match) => {
+    return `vHighlightValue=${match}`;
   });
+
+  el.innerHTML = el.innerHTML.replaceAll(
+    new RegExp(`vHighlightValue=(${regexp.source})`, 'gi'),
+    `<span${attrs}>$1</span>`
+  );
 }
 
 const highlightElements = (el: HTMLElement, value: Array<string>, style?: string) => {
