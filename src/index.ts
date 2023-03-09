@@ -24,24 +24,30 @@ const parseMatchedTextNode = (regexp: RegExp, node: ChildNode, style?: string) =
   // TODO: What if is same as prev but having multiple children
   const el = node.parentElement;
 
-  if (!el || !el?.textContent?.match(regexp)) {
+  if (!el || !node.textContent || !el?.textContent?.match(regexp)) {
     return;
   }
 
   el.dataset.highlighted = "";
-  let attrs = ` class="${style}"`
 
-  if (!style) {
-    attrs = ' style="background-color: #ebe76e;"'
-  }
+  node.replaceWith(
+    ...node.textContent.split(new RegExp(`(${regexp.source})`, 'gi')).map(textFragment => {
+      if (regexp.test(textFragment)) {
+        const fragmentToNode = document.createElement('span');
 
-  el.innerText = el.innerText.replaceAll(regexp, (match) => {
-    return `vHighlightValue=${match}`;
-  });
+        fragmentToNode.textContent = textFragment;
 
-  el.innerHTML = el.innerHTML.replaceAll(
-    new RegExp(`vHighlightValue=(${regexp.source})`, 'gi'),
-    `<span${attrs}>$1</span>`
+        if (style) {
+          fragmentToNode.classList.value = style;
+        } else {
+          fragmentToNode.style.background = '#ebe76e';
+        }
+
+        return fragmentToNode
+      }
+
+      return textFragment
+    })
   );
 }
 
