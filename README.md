@@ -1,4 +1,4 @@
-v-highlight-3 [![vue dependency version](https://img.shields.io/npm/dependency-version/v-highlight-3/vue)](https://npm.im/v-highlight-3) [![Edit on VSCode online](https://img.shields.io/badge/vscode-edit%20online-blue?logo=visualstudiocode)](https://vscode.dev/github/open-southeners/packagist_package_here)
+v-highlight-3 [![vue dependency version](https://img.shields.io/npm/dependency-version/v-highlight-3/vue)](https://npm.im/v-highlight-3) [![Edit on VSCode online](https://img.shields.io/badge/vscode-edit%20online-blue?logo=visualstudiocode)](https://vscode.dev/github/open-southeners/v-highlight)
 ===
 
 Highlight words with this simple and dependency-less Vue 3 directive.
