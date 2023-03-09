@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2023-03-09
+
+### Added
+
+- Way to ignore element's content from being highlighted adding this attribute to it: `data-highlighted=""`
+
+### Fixed
+
+- Replacing nodes with links (`<a ...></a>`) and other inline HTML elements
+
 ## [0.2.0] - 2023-03-09
 
 ### Fixed
