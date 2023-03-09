@@ -24,7 +24,7 @@ const parseMatchedTextNode = (regexp: RegExp, node: ChildNode, style?: string) =
   // TODO: What if is same as prev but having multiple children
   const el = node.parentElement;
 
-  if (!el || !node.textContent || !el?.textContent?.match(regexp)) {
+  if (!el || !node.textContent || !el?.textContent?.match(regexp) || "highlighted" in el.dataset) {
     return;
   }
 
