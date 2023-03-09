@@ -16,7 +16,8 @@
     "bundle": "microbundle -f es,cjs,umd",
     "watch": "bundle --watch",
     "clean": "rimraf dist",
-    "build": "npm-run-all --silent clean -p bundle"
+    "build": "npm-run-all --silent clean -p bundle",
+    "prepublishOnly": "yarn run build"
   },
   "dependencies": {
     "vue": "^3.2.19"

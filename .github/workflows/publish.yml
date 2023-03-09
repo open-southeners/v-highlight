@@ -16,7 +16,10 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           cache: 'yarn'
       - run: yarn install
-      - run: npm publish --access public --tag ${{ github.ref_name }}
+      - run: |
+          npm version ${{ github.ref_name }}
+          npm publish --access public
+
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
