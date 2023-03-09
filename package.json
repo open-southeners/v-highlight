@@ -7,8 +7,8 @@
   "jsnext:main": "dist/index.mjs",
   "umd:main": "dist/index.umd.js",
   "source": "src/index.ts",
-  "typings": "types/index.d.ts",
-  "repository": "https://d8vjork@github.com/d8vjork/v-highlight.git",
+  "types": "types/index.d.ts",
+  "repository": "https://github.com/open-southeners/v-highlight.git",
   "author": "Rubén Robles <d8vjork@outlook.com>",
   "license": "MIT",
   "scripts": {
