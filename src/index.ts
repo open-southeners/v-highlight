@@ -9,7 +9,6 @@ declare module 'vue' {
 
 export const vHighlight = {
   mounted(el: HTMLElement, binding: DirectiveBinding<Array<string>>) {
-    console.log(binding)
     highlightElements(el, binding.value, binding.arg)
   },
 
