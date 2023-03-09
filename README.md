@@ -1,4 +1,5 @@
-# v-highlight
+v-highlight-3 [![vue dependency version](https://img.shields.io/npm/dependency-version/v-highlight-3/vue)](https://npm.im/v-highlight-3) [![Edit on VSCode online](https://img.shields.io/badge/vscode-edit%20online-blue?logo=visualstudiocode)](https://vscode.dev/github/open-southeners/packagist_package_here)
+===
 
 Highlight words with this simple and dependency-less Vue 3 directive.
 
@@ -29,6 +30,8 @@ app.mount("#app");
 
 Or use it locally on some of your components like this:
 
+### Options API
+
 ```html
 <template>
   <div v-highlight="['hello', 'world']">
@@ -46,6 +49,21 @@ export default {
   }
 }
 </script>
+```
+
+### Setup script
+
+```html
+<script setup>
+import { vHighlight } from "v-highlight-3";
+</script>
+
+<template>
+  <div v-highlight="['hello', 'world']">
+    <p>hello</p>
+    <p>world</p>
+  </div>
+</template>
 ```
 
 ## Options
