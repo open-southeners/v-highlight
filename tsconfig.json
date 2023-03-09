@@ -5,6 +5,9 @@
       "ES2021",
       "DOM"
     ],
+    "types": [
+      "vitest/globals"
+    ],
     "strict": true,
     "noEmit": true,
     "declaration": true,
