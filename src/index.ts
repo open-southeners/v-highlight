@@ -1,5 +1,5 @@
 /* eslint-disable no-cond-assign */
-import { DirectiveBinding, FunctionDirective } from "vue"
+import { Directive, DirectiveBinding, FunctionDirective } from "vue"
 
 declare module 'vue' {
   export interface ComponentCustomProperties {
@@ -7,7 +7,7 @@ declare module 'vue' {
   }
 }
 
-export const vHighlight = {
+export const vHighlight: Directive = {
   mounted(el: HTMLElement, binding: DirectiveBinding<Array<string>>) {
     highlightElements(el, binding.value, binding.arg)
   },
@@ -28,7 +28,7 @@ const parseMatchedTextNode = (regexp: RegExp, node: ChildNode, style?: string) =
     return;
   }
 
-  el.dataset.highlighted = "";
+  el.dataset.highlighted = "1";
 
   node.replaceWith(
     ...node.textContent.split(new RegExp(`(${regexp.source})`, 'gi')).map(textFragment => {
@@ -81,7 +81,7 @@ const unhighlightElements = (el: HTMLElement) => {
   let curr: HTMLElement | undefined;
 
   while (curr = queue.pop() as HTMLElement) {
-    if (curr.nodeType === Node.ELEMENT_NODE && "highlighted" in curr.dataset) {
+    if (curr.nodeType === Node.ELEMENT_NODE && curr.dataset?.highlighted === '1') {
       curr.innerHTML = curr.textContent || ""
       delete curr.dataset.highlighted
     }
