@@ -1,4 +1,4 @@
-import { vHighlight } from '..';
+import { vHighlight } from '../src';
 import { mount } from '@vue/test-utils';
 import { defineComponent } from 'vue';
 
