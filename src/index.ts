@@ -52,6 +52,10 @@ const parseMatchedTextNode = (regexp: RegExp, node: ChildNode, style?: string) =
 }
 
 const highlightElements = (el: HTMLElement, value: Array<string>, style?: string) => {
+
+  // escape regex special characters (similar to preg_quote in PHP)
+  value = value.map(val => val.replace(/[-[\]{}()*+?.,\\^$|#\s]/ig, "\\$&"))
+  
   const regexp = new RegExp(value.join("|"), "gi");
 
   if (!el.textContent?.match(regexp)) {
