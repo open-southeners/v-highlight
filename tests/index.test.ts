@@ -104,3 +104,21 @@ test('test highlight adding dynamically an element via reactivity', async () => 
   
   wrapper.unmount();
 });
+
+test('test highlight regex does not crash with some characters', async () => {
+  const wrapper = mount(defineComponent({
+    directives: { "highlight": vHighlight },
+    template: `<div v-highlight="['**ipsum**', 'hello', 'foo']">
+      <h1>Lorem **ipsum**</h1>
+      <p>Hello lorem, I'm a foobar doing much <a href="/foo" target="_blank">ipsum</a></p>
+      <footer>test moar ipsums</footer>
+    </div>`
+  }));
+
+  const wrapperHtml = wrapper.html();
+
+  expect(wrapperHtml).toContain('<h1 data-highlighted="1">Lorem <span style="background: rgb(235, 231, 110);">**ipsum**</span></h1>');
+  expect(wrapperHtml).not.toContain('<a href="/foo" target="_blank" data-highlighted="1"><span style="background: rgb(235, 231, 110);">ipsum</span></a>');
+
+  wrapper.unmount();
+});
