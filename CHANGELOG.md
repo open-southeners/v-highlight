@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.3] - 2026-06-03
+
+### Changed
+
+- Replaced `microbundle` with Vite library mode for bundling
+- Switched Yarn linker from `pnp` to `pnpm`
+- Upgraded Yarn from 4.0.2 to 4.16.0
+- Upgraded `vue` to ^3.5.35
+- Upgraded dev dependencies: `@vitejs/plugin-vue` to ^6.0.7, `@vitest/coverage-v8` to ^4.1.8, `@vue/test-utils` to ^2.4.10, `jsdom` to ^29.1.1, `vite` to ^8.0.13, `vitest` to ^4.1.8, `typescript` to ^6.0.3, `rimraf` to ^6.1.3
+- Removed deprecated `tsc` and `npm-run-all` from dev dependencies
+
 ## [0.3.2] - 2023-12-21
 
 ### Fixed
